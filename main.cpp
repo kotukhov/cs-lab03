@@ -16,11 +16,15 @@ int main()
     cerr << "Enter column count: ";
     cin >> bin_count;
     const auto bins = make_histogram(numbers, bin_count);
-    size_t F, BLOCK;
+    size_t BLOCK;
+    bool F = true;
     cerr << "Enter BLOCK_WIDTH behind 3 and 30";
-    while ((F !> 3) && (F !< 30))
-    cin >> F;
-    BLOCK = F;
+    while (F)
+    {
+        cin >> BLOCK;
+        if (BLOCK >= 3 && BLOCK <= 30)
+        F = false;
+    }
     show_histogram_svg(bins, BLOCK);
     return 0;
 }
